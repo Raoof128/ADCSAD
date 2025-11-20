@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "name": "ADCS Attack & Defence Workbook",
+  "description": "Visualize ESC1-ESC8 detections and response playbooks",
+  "items": [
+    {
+      "type": "query",
+      "title": "Certificate-based Kerberos logons",
+      "query": "SecurityEvent | where EventID == 4768 and AuthenticationPackageName == 'Kerberos'"
+    },
+    {
+      "type": "query",
+      "title": "Failed enrollments",
+      "query": "Event | where Source == 'Microsoft-Windows-CertificationAuthority' and EventID in (53,54)"
+    },
+    {
+      "type": "text",
+      "title": "Response Checklist",
+      "content": "Rotate enrollment agent credentials, disable AnyPurpose templates, enforce EPA on HTTP endpoints."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "collectionMethods": [
+    "Group",
+    "LocalGroup",
+    "ACL",
+    "CA",
+    "CertTemplate"
+  ],
+  "excludeDCs": false,
+  "enableCACollection": true,
+  "notes": "Optimized config for PKI attack path discovery"
+}

@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "adcs-lab"
+version = "0.1.0"
+description = "Active Directory Certificate Services attack and defence lab (mock)."
+authors = ["ADCS Lab Contributors <security@example.com>"]
+package-mode = false
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "D"]
+ignore = ["D104", "D105", "D107"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]
+
+[tool.black]
+line-length = 120
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["."]
