@@ -6,14 +6,14 @@ playbooks (Python/PowerShell), and defence assets (hardening scripts, Sysmon,
 Sentinel) into a single toolkit for red and blue teams.
 
 ```mermaid
-graph LR
-  A[Mock PKI Inventory] --> B[Detection - adcs-scan detect]
-  B --> C[Reports (MD/JSON)]
-  A --> D[Attack Simulations]
-  D --> E[Escalation Playbooks]
-  B --> F[SIEM: Sysmon/KQL/Sentinel]
-  F --> G[Defence Hardening]
-  G --> B
+flowchart LR
+  inventory[Mock PKI Inventory] --> detect[Detection: adcs-scan detect]
+  detect --> reports[Reports: Markdown/JSON]
+  inventory --> attacks[Attack Simulations]
+  attacks --> playbooks[Escalation Playbooks]
+  detect --> siem[SIEM: Sysmon/KQL/Sentinel]
+  siem --> hardening[Defence Hardening]
+  hardening --> detect
 ```
 
 ## Why ADCS Matters
