@@ -1,0 +1,5 @@
+// Highlight spikes in failed certificate enrollment requests
+Event
+| where Source == "Microsoft-Windows-CertificationAuthority" and EventID in (53, 54)
+| summarize fail_count = count() by Computer, Requester, bin(TimeGenerated, 10m)
+| where fail_count > 10

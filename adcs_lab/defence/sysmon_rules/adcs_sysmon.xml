@@ -1,0 +1,17 @@
+<Sysmon schemaversion="4.82">
+  <EventFiltering>
+    <RuleGroup name="ADCS" groupRelation="or">
+      <NetworkConnect onmatch="include">
+        <DestinationPort name="ADCS Enrollment">80</DestinationPort>
+        <Image condition="contains">certreq.exe</Image>
+      </NetworkConnect>
+      <FileCreate onmatch="include">
+        <TargetFilename condition="contains">\\\\certsrv\\</TargetFilename>
+      </FileCreate>
+      <ProcessCreate onmatch="include">
+        <Image condition="contains">certify.exe</Image>
+        <Image condition="contains">certipy</Image>
+      </ProcessCreate>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>
